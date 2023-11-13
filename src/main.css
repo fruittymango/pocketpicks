@@ -1,0 +1,147 @@
+body{
+    margin: 0;
+    font-size: 16px;
+    color: #F9F9F9;
+    background-color: #16181E;
+    font-family: 'Lato', sans-serif;
+}
+
+#root{
+    height: 100%;
+    width: 100vw;
+}
+
+p{
+    font-size: 150%;
+}
+
+.app-title{
+    width: 70%;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 3rem;
+}
+
+.app-title span{
+    display: block;
+    font-weight:900;
+    width: 100%;
+    letter-spacing: 1rem;
+    padding: 0 0.4rem;
+    font-size: 1.3rem;
+    line-height: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content{
+    margin:0 auto 0;
+    padding:25vh 0 0;
+    max-width:80%;
+    height:30vh;
+
+}
+
+.flex-center{
+    display:flex;
+    justify-content:center;
+
+}
+
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 5rem;
+    margin:0
+}
+
+.block{
+    display:block;
+}
+
+.flex-space-between p{
+    padding:5vw;
+    text-align: center;    
+}
+
+.horizontal-bar{
+    border-radius:100%;
+    width:100%;
+    border:2px solid #00B9AE
+}
+
+.menu-bg{
+    display:flex;
+    justify-content:center;
+    margin-bottom:0vh
+}
+
+.menu-item{
+    padding:5px 10px
+}
+
+.bar{
+    border-right:2px solid white;
+}
+
+.menu-bg + .menu-bg{
+    margin-top:'5vh';
+}
+
+.slogan{
+    font-style:italic;
+}
+
+.footer{
+    position:relative;
+    bottom:0;
+    top:32vh;
+    align-self: center;
+    display:flex;
+    justify-content:center;
+    width: 100%;
+
+}
+@media (max-width: 590px) {
+    h1{
+        font-size: 3rem;
+        margin:0
+    }
+
+    p{
+        font-size: 100%;
+    }
+
+    .menu-bg{
+        margin-bottom: 3vh;
+    }
+
+    .footer{
+        font-size: 50%;
+        bottom: 0;
+        top: 27vh;
+    }
+}
+
+@media (max-width: 370px) {
+    h1{
+        font-size:150%;
+        margin:0
+    }
+
+    p{
+        font-size: 100%;
+    }
+
+    .menu-bg{
+        margin-bottom: 3vh;
+    }
+
+    .footer{
+        font-size: 50%;
+        bottom: 0;
+        top: 27vh;
+    }
+}
