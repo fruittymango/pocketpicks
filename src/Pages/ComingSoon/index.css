@@ -24,6 +24,7 @@ h1, h2, h3, h4, p{
 }
 
 .logo{
+    padding: 1rem;
     font-size: 2.5rem;
     font-family: 'Open Sans', sans-serif;
 }
