@@ -78,7 +78,7 @@ button{
 
 .banner-title{
     font-weight:bold;
-    font-size: clamp(24px, 2.5vw, 130px);
+    font-size: clamp(24px, 2.3vw, 130px);
     margin: 10px;
     width: 85%;
     white-space: nowrap;
@@ -179,7 +179,7 @@ button{
 
 .primary-header{
     font-weight: bold;
-    font-size: clamp(25px, 3vw, 150px);
+    font-size: clamp(25px, 2.5vw, 150px);
     margin: 0 0 2rem;
 }
 
@@ -731,7 +731,7 @@ footer{
         max-height: 400px; */
 
         /* height: clamp(350px, 45vw, 650px); */
-        height: clamp(200px, 30dvw, 500px);
+        height: clamp(200px, 23dvw, 500px);
 
     }
 
