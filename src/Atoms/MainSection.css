@@ -1,0 +1,130 @@
+.main-section{
+    padding: 2rem 1rem;
+    background-color: #16181E;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-back-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-bar-section{
+    display: flex;
+    justify-content:space-between;
+}
+
+.app-title{
+    width: 70%;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin-top: -15px;
+}
+
+.app-title span{
+    display: block;
+    font-weight:900;
+    width: 100%;
+    letter-spacing: 1rem;
+    padding: 0 0.4rem;
+    font-size: 1.3rem;
+    line-height: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.top-bar-section a{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* TODO: For mobile we show these on the left section, */
+.search-box, .search-icon, .tab-titles{
+    display: none;
+}
+
+button{
+    border: none;
+}
+
+/* Banner */
+
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex:2;
+}
+
+.card-header .card-title{
+    font-size: medium;
+    font-weight: 600;
+}
+
+.card-header .card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-header .card-description{
+    font-size: small;
+}
+
+.card-actions{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.card-actions button{
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.card-actions button:nth-child(1){
+    flex: 2;
+    color: #F9F9F9;
+    background-color: hwb(0 98% 2% / 0.2);
+}
+
+.card-actions button:nth-child(2){
+    flex: 3;
+    color:#16181E;
+    background-color: #00B9AE;
+}
+
+.popular-movies-carousel{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:1rem 0rem 1rem;
+    gap: 5%;
+}
+
+.fade{
+    content: '';
+    position:absolute;
+    right:25.8%;
+    height: 15.5rem;
+    width: 13rem; /* Adjust the width of the fading border as needed */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #16181EB2);
+}
+
+.popular-online-buttons{
+    padding:1rem 2rem 1rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+}
+
+
