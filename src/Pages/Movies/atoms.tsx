@@ -29,20 +29,20 @@ export const MoviesBanner = () => {
   }, []);
 
   useEffect(()=>{
-    if (timeOutId.current) {
-      clearTimeout(timeOutId.current);
-    }
 
     const id = setTimeout( () => {
       setIndex(currentIndex > trendingTVShows.length - 2 ? 0 : currentIndex+1);
     }, 5000);
 
     timeOutId.current = id;
+    return () => {
+      clearTimeout(timeOutId.current);
+    };
 
-  },[currentIndex]);
+  },[currentIndex, trendingTVShows]);
 
   return(
-    <div className='banner' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${trendingTVShows[currentIndex]?.backdrop_path}`}}>
+    <div className='banner' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${trendingTVShows[currentIndex]?.backdrop_path || '' }`}}>
       <h2 className='banner-title'>{trendingTVShows[currentIndex]?.title || ''}</h2>
 
       <div className='change-cover-buttons'>
@@ -284,7 +284,7 @@ export const ShowMovieCard: React.FC<Movie> = (props) => {
   const {setModalData, setModalState} = useContext(MovieModalContext)  as MovieModalType;
 
   return(
-    <div className='tv-show-container-wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path})`, }}>
+    <div className='tv-show-container-wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path || ''})`, }}>
       <div className='movie-description'>
         <div style={{fontSize:'1rem', fontWeight:'bold', padding:'0.8rem 0'}}>{props.title}</div>
         <p  style={{textOverflow:'ellipsis',overflow:'hidden', fontSize:'0.8rem', height:'5.5rem', }}>{props.overview}</p>
@@ -310,7 +310,7 @@ export const ShowTrendingMovie: React.FC<Movie> = (props) => {
         setModalData(props);
         setModalState(true);
       }}
-      className='tv-show-container-wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path})`, }}>
+      className='tv-show-container-wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path || ''})`, }}>
         <div className='movie-description'>
           <div style={{fontSize:'1rem', fontWeight:'bold', padding:'0.8rem 0'}}>{props.title}</div>
           <p  style={{textOverflow:'ellipsis',overflow:'hidden', fontSize:'0.8rem', height:'5.5rem', }}>{props.overview}</p>
@@ -331,7 +331,7 @@ export const ShowTrendingMovieTrailer: React.FC<Movie> = (props) => {
   const {setModalData, setModalState} = useContext(MovieModalContext)  as MovieModalType;
 
   return(
-    <div className='movieCard' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path})`,backgroundSize:'12rem 16rem',paddingBottom:'0rem', paddingRight:'0', paddingLeft:'0' }}>
+    <div className='movieCard' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${props?.poster_path || ''})`,backgroundSize:'12rem 16rem',paddingBottom:'0rem', paddingRight:'0', paddingLeft:'0' }}>
       <div className='movie-description'>
         <div style={{fontSize:'1rem', fontWeight:'bold', padding:'0.8rem 0'}}>{props.title}</div>
         <p  style={{textOverflow:'ellipsis',overflow:'hidden', fontSize:'0.8rem', height:'5.5rem', }}>{props.overview}</p>
@@ -364,7 +364,7 @@ export const LowerSection = () => {
 
   const ShowGenres: React.FC<Genre> = ({name, poster_path}) => {
     return (
-    <div style={{display:'flex',width: '8rem', height:'5rem', borderRadius:'8px', backgroundColor:'#16181EB2', justifyContent:'center', backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path}`, backgroundSize:'8rem auto'}}>
+    <div style={{display:'flex',width: '8rem', height:'5rem', borderRadius:'8px', backgroundColor:'#16181EB2', justifyContent:'center', backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path || ''}`, backgroundSize:'8rem auto'}}>
       <a href={`/Genre?category=${name}&for=tv-shows`}>
         <p style={{textAlign:'center', alignSelf:'center',fontWeight:'bolder'}}>{name}</p>
       </a>

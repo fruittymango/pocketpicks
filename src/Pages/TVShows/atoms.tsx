@@ -8,7 +8,7 @@ import {
   getPopularTVShows,
 } from './apiCalls';
 import { useNavigate } from 'react-router-dom';
-
+// TODO: Discover and Popular have the same content
 export const TVShowsBanner = () => {
   const {setModalData, setModalState} = useContext(TVShowModalContext)  as TVShowModalType;
   const [trendingTVShows, setTrendingTVShows] = useState<Array<TVShow>>([]);
@@ -27,17 +27,16 @@ export const TVShowsBanner = () => {
   }, []);
 
   useEffect(()=>{
-    if (timeOutId.current) {
-      return clearTimeout(timeOutId.current);
-    }
-
     const id = setTimeout( () => {
       setIndex(currentIndex > trendingTVShows.length - 2 ? 0 : currentIndex+1);
     }, 5000);
 
     timeOutId.current = id;
+    return () => {
+      clearTimeout(timeOutId.current);
+    };
 
-  },[currentIndex]);
+  },[currentIndex, trendingTVShows]);
 
   return(
     <div className='banner' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${trendingTVShows[currentIndex]?.backdrop_path}`}}>
