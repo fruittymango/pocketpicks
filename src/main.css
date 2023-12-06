@@ -4,8 +4,6 @@
     height: 5px;
 }
 
-
-
 /* Track */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -16,11 +14,6 @@
     background: #fafafa33; 
     border-radius: 4px;
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    /* background: #b30000;  */
-} 
 
 body{
     margin: 0;
@@ -33,7 +26,7 @@ body{
     scroll-behavior: smooth;
 }
 
-body:has(.loading), body:has(.modal-background), body:has(.menu-bg) {
+body:has(.modal-background), body:has(.menu-bg) {
     overflow: hidden;
 }
 
@@ -222,6 +215,11 @@ button{
     justify-content: space-between;
 }
 
+.loading-off{
+    display: none;
+    visibility: hidden;
+}
+
 .loading{
     background-color: #16181E;
     width: 100%;
@@ -232,6 +230,7 @@ button{
     overflow: hidden;
     justify-content: center;
     align-content: center;
+    visibility:'';
     
 }
 
@@ -763,7 +762,6 @@ footer{
     #root:has(.see-more-items-wrapper) .back-button{
         height: 1.5rem;
     }
-
 
 
     #root:has(.see-more-items-wrapper)  .menu-button,  #root:has(.see-more-items-wrapper)  .tab-titles{
