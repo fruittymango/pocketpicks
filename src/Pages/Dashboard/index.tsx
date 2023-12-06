@@ -8,18 +8,19 @@ import { TVShowModalContext, } from '../TVShows/TVShowModal';
 import { TVShow, } from '../TVShows/model';
 import {  TrendingTVShows } from '../TVShows/atoms';
 import RightSection from '../../Atoms/RightSection';
-import { useLocation } from 'react-router-dom';
 
 function Dashboard() {
-  const [loading, setLoading] = useState(true);
   const [menuState, setMenuState] = useState<boolean>( false );
   const [modalData, setModalData] = useState<TVShow | Movie | {}>({});
   const [modalState, setModalState] = useState<boolean>( false );
-  const location = useLocation()
 
-  useEffect(()=>{
-    setLoading(false);
-  }, [location]);
+  useEffect(() => {
+    document.getElementsByClassName('loading')[0].classList.add('loading-off');
+    
+    return () => {
+      document.getElementsByClassName('loading')[0].classList.remove('loading-off')
+    };
+  }, []);
 
 
   return (
@@ -55,7 +56,6 @@ function Dashboard() {
             <MovieModal/>
         </MovieModalContext.Provider>
       </TVShowModalContext.Provider>
-      {loading?<div className='loading'><span className="loader"></span></div> :null}
     </>
   )
 }

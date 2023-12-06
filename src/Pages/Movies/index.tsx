@@ -5,19 +5,20 @@ import RightSection from '../../Atoms/RightSection';
 import { MovieModalContext, MovieModal} from './MovieModal';
 import { Movie } from './model';
 import { LowerSection, MoviesBanner, PopularMovies, TrendingMovies, UpcomingMovies } from './atoms';
-import { useLocation } from 'react-router-dom';
 
 // Dashboard
 function MovieScreen() {
-  const [loading, setLoading] = useState(true);
   const [menuState, setMenuState] = useState<boolean>( false );
   const [modalData, setModalData] = useState<Movie | {}>({});
   const [modalState, setModalState] = useState<boolean>( false );
-  const location = useLocation();
 
-  useEffect(()=>{
-    setLoading(false);
-  }, [location]);
+  useEffect(() => {
+    document.getElementsByClassName('loading')[0].classList.add('loading-off');
+    
+    return () => {
+      document.getElementsByClassName('loading')[0].classList.remove('loading-off')
+    };
+  }, []);
 
   return (
     <>
@@ -45,7 +46,6 @@ function MovieScreen() {
             </RightSection>
             <MovieModal/>
       </MovieModalContext.Provider>
-      {loading?<div className='loading'><span className="loader"></span></div> :null}
     </>
   )
 }

@@ -9,7 +9,7 @@ import {
   getTVShowDiscovery,
   getTVShowsGenres
 } from './apiCalls';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigationType, } from 'react-router-dom';
 import { PopularTVShows, TVShowsBanner, TrendingTVShows } from './atoms';
 
 interface DiscoverTvShow {
@@ -141,15 +141,17 @@ const LowerSection = () => {
 }
 
 function TVShowsPage() {
-  const [loading, setLoading] = useState(true);
   const [menuState, setMenuState] = useState<boolean>( false );
   const [modalData, setModalData] = useState<TVShow | {}>({});
   const [modalState, setModalState] = useState<boolean>( false );
-  const location = useLocation();
 
-  useEffect(()=>{
-    setLoading(false);
-  }, [location]);
+  useEffect(() => {
+    document.getElementsByClassName('loading')[0].classList.add('loading-off');
+    
+    return () => {
+      document.getElementsByClassName('loading')[0].classList.remove('loading-off')
+    };
+  }, []);
 
   return (
     <>
@@ -180,9 +182,6 @@ function TVShowsPage() {
 
           <TVShowModal/>
       </TVShowModalContext.Provider>
-      {loading?<div className='loading'>
-        <span className="loader"></span>
-      </div> :null}
     </>
   )
 }
