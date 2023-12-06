@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import {
   useParams, useLocation,
 } from "react-router-dom";
@@ -26,6 +26,14 @@ const SeeMorePage = () => {
     title: string;
     elem: ReactElement;
   };
+
+  useEffect(() => {
+    document.getElementsByClassName('loading')[0].classList.add('loading-off');
+    
+    return () => {
+      document.getElementsByClassName('loading')[0].classList.remove('loading-off')
+    };
+  }, []);
 
 
   const SeeMoreTVShows = () => {
