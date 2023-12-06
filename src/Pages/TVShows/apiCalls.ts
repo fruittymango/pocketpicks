@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_BASE_URL;
+const API_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5500';
 const AUTH_TOKEN = `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`;
 const TRENDING_ALL_ENDPOINT = '/trending/all/day?language=en-US';
 const TRENDING_PEOPLE_ENDPOINT = '/trending/person/day?language=en-US';

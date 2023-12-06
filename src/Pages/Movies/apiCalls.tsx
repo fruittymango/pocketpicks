@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_BASE_URL;
+const API_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5500';
 const AUTH_TOKEN = `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`;
 const TRENDING_PEOPLE_ENDPOINT = '/trending/person/day?language=en-US';
 const MOVIE_VIDEOS = `/movie/movie_id/videos?language=en-US'`;
@@ -84,6 +84,8 @@ export async function getPopularMovies(language='en-US',page='1'){
 
 export async function getNowPlayingMovies(language='en-US', page='1'){
     try {
+        //      --url 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1' \
+
         const options = {
             method: 'GET',
             url: `${API_URL+MOVIES_NOW_PLAYING}?language=${language}&page=${page}`,
